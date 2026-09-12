@@ -1,5 +1,9 @@
 # Terraform AWS 3-Tier Architecture
 
+This project is a **modular AWS 3-Tier Architecture built using Terraform** as an Infrastructure as Code (IaC) solution. It provisions a secure and highly available AWS environment with separate **public, application, and database tiers** across multiple Availability Zones. The public tier contains an **Application Load Balancer**, which distributes incoming traffic to multiple **EC2 application servers** running in private subnets. The database tier uses **Amazon RDS MySQL** in isolated private subnets, accessible only from the application servers through dedicated security groups. The project also includes a **VPC, Internet Gateway, NAT Gateways, route tables, IAM roles, encrypted storage, backups, and security groups**. Terraform is organized into reusable modules for VPC, security groups, IAM, ALB, EC2, and RDS, demonstrating professional Terraform practices. Terraform state is stored remotely in **Amazon S3 with state locking and versioning**, providing safer state management for collaborative infrastructure work. Overall, the project demonstrates practical skills in **Terraform, AWS networking, modular Infrastructure as Code, security, high availability, remote state management, and cloud architecture**, making it a strong portfolio project for an AWS/DevOps role.
+
+
+
 A modular Infrastructure as Code project that provisions a highly available
 three-tier architecture on AWS using Terraform.
 ```text
