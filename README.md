@@ -60,3 +60,67 @@ terraform-aws-3-tier-architecture/
 ├── main.tf
 ├── outputs.tf
 └── terraform.tfvars.example
+
+Prerequisites
+AWS account
+AWS CLI
+Terraform
+Existing EC2 key pair
+AWS credentials configured locally
+
+Verify:
+
+aws sts get-caller-identity
+
+terraform version
+## Step 1 - Create Terraform State Backend
+cd bootstrap/backend
+
+terraform init
+terraform plan
+terraform apply
+
+This creates:
+
+S3 state bucket
+S3 versioning
+Server-side encryption
+Public access protection
+
+## Step 2 - Configure Variables
+
+Copy:
+
+cp terraform.tfvars.example terraform.tfvars
+
+Update:
+
+key_pair_name = "YOUR_KEY_PAIR"
+ami_id        = "YOUR_AMI_ID"
+db_password   = "YOUR_PASSWORD"
+
+Never commit terraform.tfvars.
+
+## Step 3 - Initialize Terraform
+terraform init
+## Step 4 - Format
+terraform fmt -recursive
+## Step 5 - Validate
+terraform validate
+## Step 6 - Plan
+terraform plan
+## Step 7 - Deploy
+terraform apply
+
+Confirm:
+yes
+## Step 8 - View Outputs
+terraform output
+
+The ALB DNS name can be used to access the application.
+
+Destroy
+
+When the project is no longer required:
+
+terraform destroy
