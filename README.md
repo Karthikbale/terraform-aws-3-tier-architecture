@@ -127,4 +127,3 @@ When the project is no longer required:
 
 terraform destroy
 ```
-## Next
