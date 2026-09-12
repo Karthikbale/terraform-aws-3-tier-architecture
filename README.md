@@ -2,7 +2,8 @@
 
 A modular Infrastructure as Code project that provisions a highly available
 three-tier architecture on AWS using Terraform.
-Terraform → Modules → AWS VPC → Multi-AZ → Public/Private Networking → NAT → ALB → EC2 → IAM → RDS → Remote State → State Locking → Encryption → Security Groups → Outputs → GitHub-ready documentation.
+```text
+Terraform → Modules → AWS VPC → Multi-AZ → Public/Private Networking → NAT → ALB → EC2 → IAM → RDS → Remote State → State Locking → Encryption → Security Groups → Outputs → GitHub-ready documentation. ```
 ## Architecture
 
 Internet
