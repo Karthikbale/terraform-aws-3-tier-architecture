@@ -131,3 +131,98 @@ When the project is no longer required:
 
 terraform destroy
 ```
+
+Architecture
+                         INTERNET
+                            │
+                            ▼
+                 ┌────────────────────┐
+                 │ Application Load   │
+                 │      Balancer      │
+                 │    Public Tier     │
+                 └─────────┬──────────┘
+                           │
+              ┌────────────┴────────────┐
+              │                         │
+              ▼                         ▼
+       ┌──────────────┐         ┌──────────────┐
+       │    EC2-APP1  │         │    EC2-APP2  │
+       │ Private AZ-1 │         │ Private AZ-2 │
+       └───────┬──────┘         └──────┬───────┘
+               │                       │
+               └───────────┬───────────┘
+                           ▼
+                   ┌──────────────┐
+                   │     RDS      │
+                   │   MySQL DB   │
+                   │ Private Tier │
+                   └──────────────┘
+
+ Private EC2
+     │
+     ▼
+ NAT Gateway
+     │
+     ▼
+ Internet Gateway
+     │
+     ▼
+  INTERNET
+1. Final repository structure
+terraform-aws-3-tier-architecture/
+│
+├── README.md
+├── .gitignore
+│
+├── versions.tf
+├── provider.tf
+├── backend.tf
+├── variables.tf
+├── main.tf
+├── outputs.tf
+├── terraform.tfvars.example
+│
+├── bootstrap/
+│   └── backend/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+│
+├── modules/
+│   │
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── security-groups/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── iam/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── alb/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── rds/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+│
+└── environments/
+    │
+    └── dev/
+        ├── main.tf
+        ├── variables.tf
+        └── terraform.tfvars.example
