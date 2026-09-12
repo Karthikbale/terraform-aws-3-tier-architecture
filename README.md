@@ -117,7 +117,10 @@ yes
 ## Step 8 - View Outputs
 terraform output
 
-The ALB DNS name can be used to access the application.
+The ALB DNS name can be used to access the application. ```
+
+Karthik
+
 
 Destroy
 
