@@ -1,0 +1,57 @@
+aws_region  = "us-east-1"
+project_name = "terraform-3tier"
+environment = "dev"
+owner       = "Karthik"
+
+vpc_name = "terraform-3tier-vpc"
+vpc_cidr = "10.0.0.0/16"
+
+availability_zones = [
+  "us-east-1a",
+  "us-east-1b"
+]
+
+public_subnet_cidrs = [
+  "10.0.1.0/24",
+  "10.0.2.0/24"
+]
+
+app_subnet_cidrs = [
+  "10.0.11.0/24",
+  "10.0.12.0/24"
+]
+
+database_subnet_cidrs = [
+  "10.0.21.0/24",
+  "10.0.22.0/24"
+]
+
+nat_gateway_count = 2
+
+key_pair_name = "YOUR_KEY_PAIR_NAME"
+
+# Example Amazon Linux 2023 AMI.
+# Verify the current AMI in us-east-1 before deployment.
+ami_id = "YOUR_AMI_ID"
+
+instance_type       = "t3.micro"
+app_instance_count  = 2
+application_port    = 80
+ssh_port            = 22
+
+alb_name          = "terraform-3tier-alb"
+target_group_name = "terraform-app-tg"
+
+db_identifier       = "terraform-3tier-db"
+db_name             = "appdb"
+db_username         = "admin"
+db_password         = "CHANGE_ME"
+
+db_instance_class   = "db.t3.micro"
+db_engine_version   = "8.0"
+db_allocated_storage = 20
+db_backup_retention = 7
+db_multi_az         = false
+db_deletion_protection = false
+
+web_server = "nginx"
