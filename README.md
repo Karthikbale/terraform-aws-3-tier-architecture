@@ -2,7 +2,7 @@
 
 A modular Infrastructure as Code project that provisions a highly available
 three-tier architecture on AWS using Terraform.
-
+Terraform → Modules → AWS VPC → Multi-AZ → Public/Private Networking → NAT → ALB → EC2 → IAM → RDS → Remote State → State Locking → Encryption → Security Groups → Outputs → GitHub-ready documentation.
 ## Architecture
 
 Internet
@@ -117,13 +117,11 @@ yes
 ## Step 8 - View Outputs
 terraform output
 
-The ALB DNS name can be used to access the application. ```
-
-Karthik
-
+The ALB DNS name can be used to access the application. 
 
 Destroy
 
 When the project is no longer required:
 
 terraform destroy
+'''
