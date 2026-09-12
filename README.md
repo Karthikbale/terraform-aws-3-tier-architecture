@@ -132,7 +132,8 @@ When the project is no longer required:
 terraform destroy
 ```
 
-Architecture
+## Architecture
+```text
                          INTERNET
                             │
                             ▼
@@ -168,7 +169,10 @@ Architecture
      │
      ▼
   INTERNET
-1. Final repository structure
+```
+
+## Final repository structure
+ ```text
 terraform-aws-3-tier-architecture/
 │
 ├── README.md
@@ -226,3 +230,4 @@ terraform-aws-3-tier-architecture/
         ├── main.tf
         ├── variables.tf
         └── terraform.tfvars.example
+```
